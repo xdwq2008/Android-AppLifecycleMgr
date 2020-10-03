@@ -1,11 +1,12 @@
 apply plugin: 'java-library'
 apply plugin: 'groovy'
-apply plugin: 'maven'
+//发到本地maven时打开
+//apply plugin: 'maven'
 
-// JitPack Maven
-//apply plugin: 'com.github.dcendents.android-maven'
+// JitPack Maven （发到本地maven时关闭）
+apply plugin: 'com.github.dcendents.android-maven'
 // Your Group
-//group='com.github.hufeiyang'
+group='com.github.hufeiyang'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -22,11 +23,12 @@ dependencies {
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
 
-uploadArchives {
-    repositories.mavenDeployer {
-        pom.version = '1.0.1'
-        pom.artifactId = 'hmlifecyclepluginlocal'
-        pom.groupId = 'com.heima.iou'
-        repository(url: "file:///Users/hufeiyang/.m2/repository/")
-    }
-}
+//发到本地maven时打开
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        pom.version = '1.0.1'
+//        pom.artifactId = 'hmlifecyclepluginlocal'
+//        pom.groupId = 'com.heima.iou'
+//        repository(url: "file:///Users/hufeiyang/.m2/repository/")
+//    }
+//}

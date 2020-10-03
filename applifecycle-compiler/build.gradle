@@ -1,11 +1,20 @@
 apply plugin: 'java-library'
 
+// JitPack Maven
+apply plugin: 'com.github.dcendents.android-maven'
+// Your Group
+group='com.github.hufeiyang'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    //注意依赖这里需要分别implementation、annotationProcessor
     implementation 'com.google.auto.service:auto-service:1.0-rc6'
-    implementation project(':applifecycle-annotation')
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
+
     implementation 'com.squareup:javapoet:1.12.1'
+
+    implementation project(':applifecycle-annotation')
 
 }
 

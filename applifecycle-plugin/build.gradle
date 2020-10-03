@@ -2,14 +2,19 @@ apply plugin: 'java-library'
 apply plugin: 'groovy'
 apply plugin: 'maven'
 
+// JitPack Maven
+//apply plugin: 'com.github.dcendents.android-maven'
+// Your Group
+//group='com.github.hufeiyang'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile gradleApi()
-    compile localGroovy()
+    implementation gradleApi()
+    implementation localGroovy()
 
-    compile 'com.android.tools.build:transform-api:1.5.0'
-    compile 'com.android.tools.build:gradle:3.0.1'
+    implementation 'com.android.tools.build:transform-api:1.5.0'
+    implementation 'com.android.tools.build:gradle:3.6.4'
 
 
 }
@@ -19,9 +24,9 @@ targetCompatibility = "1.7"
 
 uploadArchives {
     repositories.mavenDeployer {
-        pom.version = '1.0.0'
+        pom.version = '1.0.1'
         pom.artifactId = 'hmlifecyclepluginlocal'
         pom.groupId = 'com.heima.iou'
-        repository(url: "file:///Users/hjy/.m2/repository/")
+        repository(url: "file:///Users/hufeiyang/.m2/repository/")
     }
 }

@@ -19,12 +19,12 @@ public class ModuleDApplicationLifecycleCallbacks implements IApplicationLifecyc
 
     @Override
     public void onCreate(Context context) {
-        Log.d("AppLike", "onCreate(): this is in ModuleDAppLike.");
+        Log.d("AppLifecycle", "onCreate(): this is in ModuleDApplicationLifecycleCallbacks.");
     }
 
     @Override
     public void onTerminate() {
-        Log.d("AppLike", "onTerminate(): this is in ModuleDAppLike.");
+        Log.d("AppLifecycle", "onTerminate(): this is in ModuleDApplicationLifecycleCallbacks.");
     }
 
     @Override

@@ -13,21 +13,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ApplicationLifecycleManager.DEBUG = true;
-
-        findViewById(R.id.btn_test).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                AppLifeCycleManager.init(getApplicationContext());
-            }
-        });
-
-        findViewById(R.id.btn_test2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                AppLifeCycleManager.terminate();
-            }
-        });
-
     }
 }

@@ -1,8 +1,12 @@
 package com.hm.iou.lifecycle.plugin
 
+import jdk.internal.org.objectweb.asm.ClassReader
+import jdk.internal.org.objectweb.asm.ClassVisitor
+import jdk.internal.org.objectweb.asm.ClassWriter
+import jdk.internal.org.objectweb.asm.MethodVisitor
+import jdk.internal.org.objectweb.asm.Opcodes
+import jdk.internal.org.objectweb.asm.commons.AdviceAdapter
 import org.apache.commons.io.IOUtils
-import org.objectweb.asm.*
-import org.objectweb.asm.commons.AdviceAdapter
 
 import java.util.jar.JarEntry
 import java.util.jar.JarFile
@@ -70,6 +74,9 @@ class AppLifecycleCodeInjector {
     }
 
     class AppLifecycleClassVisitor extends ClassVisitor {
+
+        private ClassVisitor mClassVisitor
+
         AppLifecycleClassVisitor(ClassVisitor classVisitor) {
             super(Opcodes.ASM5, classVisitor)
             mClassVisitor = classVisitor
@@ -80,12 +87,12 @@ class AppLifecycleCodeInjector {
                                   String desc, String signature,
                                   String[] exception) {
             println "visit method: " + name
-            MethodVisitor mv = super.visitMethod(access, name, desc, signature, exception)
+            MethodVisitor methodVisitor = mClassVisitor.visitMethod(access, name, desc, signature, exception)
             //找到 AppLifeCycleManager里的init()方法
             if ("init" == name) {
-                mv = new LoadAppLifecycleMethodAdapter(mv, access, name, desc)
+                methodVisitor = new LoadAppLifecycleMethodAdapter(methodVisitor, access, name, desc)
             }
-            return mv
+            return methodVisitor
         }
     }
 
@@ -111,7 +118,7 @@ class AppLifecycleCodeInjector {
         @Override
         protected void onMethodExit(int opcode) {
             super.onMethodExit(opcode)
-            println "-------onMethodEnter------"
+            println "-------onMethodExit------"
         }
     }
 

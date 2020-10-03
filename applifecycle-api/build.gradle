@@ -1,5 +1,10 @@
 apply plugin: 'com.android.library'
 
+// JitPack Maven
+apply plugin: 'com.github.dcendents.android-maven'
+// Your Group
+group='com.github.hufeiyang'
+
 android {
     compileSdkVersion 26
 
@@ -33,4 +38,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation project(':applifecycle-annotation')
+
 }

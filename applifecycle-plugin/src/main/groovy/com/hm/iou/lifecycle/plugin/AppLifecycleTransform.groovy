@@ -1,10 +1,11 @@
 package com.hm.iou.lifecycle.plugin
 
 import com.android.build.api.transform.*
-import com.android.build.gradle.internal.pipeline.TransformManager
+import com.google.common.collect.ImmutableSet
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
+
 /**
  * Created by hjy on 2018/10/23.
  */

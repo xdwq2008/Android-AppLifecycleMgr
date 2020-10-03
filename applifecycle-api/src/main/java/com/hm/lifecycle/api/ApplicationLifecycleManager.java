@@ -20,6 +20,7 @@ public class ApplicationLifecycleManager {
 
     /**
      * 改方法内容会在编译时写入
+     * （找到@AppLifecycle注解的类 对应的代理类后）调用registerApplicationLifecycleCallbacks
      */
     public static void init() {
     }

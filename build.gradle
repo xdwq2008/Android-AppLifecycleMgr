@@ -6,11 +6,18 @@ buildscript {
         google()
         jcenter()
 
+        //自定义插件maven地址(本地maven)
+        maven { url 'file:///Users/hufeiyang/.m2/repository/' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.1'
+        classpath 'com.android.tools.build:gradle:3.6.4'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        //加载插件applifecycle
+        classpath 'com.heima.iou:hmlifecyclepluginlocal:1.0.1'
+
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 

@@ -199,16 +199,16 @@ public class AppLikeProcessor extends AbstractProcessor {
             //这里检查一下，使用了该注解的类，同时必须要实现com.hm.lifecycle.api.IAppLike接口，否则会报错，因为我们要实现一个代理类
             List<? extends TypeMirror> mirrorList = typeElement.getInterfaces();
             if (mirrorList.isEmpty()) {
-                throw new RuntimeException(typeElement.getQualifiedName() + " must implements interface com.hm.lifecycle.api.IAppLike");
+                throw new RuntimeException(typeElement.getQualifiedName() + " must implements interface com.hm.lifecycle.api.IApplicationLifecycleCallbacks");
             }
             boolean checkInterfaceFlag = false;
             for (TypeMirror mirror : mirrorList) {
-                if ("com.hm.lifecycle.api.IAppLike".equals(mirror.toString())) {
+                if ("com.hm.lifecycle.api.IApplicationLifecycleCallbacks".equals(mirror.toString())) {
                     checkInterfaceFlag = true;
                 }
             }
             if (!checkInterfaceFlag) {
-                throw new RuntimeException(typeElement.getQualifiedName() + " must implements interface com.hm.lifecycle.api.IAppLike");
+                throw new RuntimeException(typeElement.getQualifiedName() + " must implements interface com.hm.lifecycle.api.IApplicationLifecycleCallbacks");
             }
 
             //该类的全限定类名
@@ -281,7 +281,7 @@ public class AppLikeProxyClassCreator {
 
         //设置import部分
         sb.append("import android.content.Context;\n");
-        sb.append("import com.hm.lifecycle.api.IAppLike;\n");
+        sb.append("import com.hm.lifecycle.api.IApplicationLifecycleCallbacks;\n");
         sb.append("import ").append(mTypeElement.getQualifiedName()).append(";\n\n");
 
         sb.append("public class ").append(mProxyClassSimpleName)
@@ -360,8 +360,8 @@ public class ModuleAAppLike implements IAppLike {
 package com.hm.iou.lifecycle.apt.proxy;
 
 import android.content.Context;
-import com.hm.lifecycle.api.IAppLike;
-import com.hm.iou.lifecycle.demo.ModuleAAppLike;
+import com.hm.lifecycle.api.IApplicationLifecycleCallbacks;
+import com.hm.iou.lifecycle.demo.ModuleAApplicationLifecycleCallbacks;
 
 public class Heima$$ModuleAAppLike$$Proxy implements IAppLike  {
 

@@ -40,9 +40,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation project(':lifecycle-annotation')
-    implementation project(':lifecycle-api')
-    annotationProcessor project(':lifecycle-apt')
+    implementation project(':applifecycle-annotation')
+    implementation project(':applifecycle-api')
+    annotationProcessor project(':applifecycle-compiler')
 
     implementation project(':module-1')
 }

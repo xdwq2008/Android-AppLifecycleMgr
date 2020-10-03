@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 //引入插件applifecycle
-apply plugin: 'com.hm.plugin.lifecycle'
+//apply plugin: 'com.hm.plugin.lifecycle'
 
 android {
     compileSdkVersion 27

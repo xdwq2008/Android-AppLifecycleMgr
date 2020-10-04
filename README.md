@@ -1,5 +1,5 @@
 
-> AppLifecycle插件是使用了 APT技术、gradle插件技术+ASM动态生成字节码，在编译阶段就已经完成了大部分工作，无性能问题、且使用方便。
+AppLifecycle插件是使用了 APT技术、gradle插件技术+ASM动态生成字节码，在编译阶段就已经完成了大部分工作，无性能问题、且使用方便。
 
 # 1. **common组件依赖 applifecycle-api** 
 首先，common组件通过 api 添加 applifecycle-api 依赖 并发布ARR：

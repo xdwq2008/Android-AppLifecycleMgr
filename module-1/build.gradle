@@ -36,7 +36,7 @@ dependencies {
 //    implementation project(':applifecycle-api')
 //    annotationProcessor project(':applifecycle-compiler')
 
-    implementation 'com.github.xdwq2008.Android-AppLifecycleMgr:applifecycle-api:1.0.4'
-    annotationProcessor 'com.github.xdwq2008.Android-AppLifecycleMgr:applifecycle-compiler:1.0.4'
+    implementation 'com.github.xdwq2008.Android-AppLifecycleMgr:applifecycle-api:1.0.5'
+    annotationProcessor 'com.github.xdwq2008.Android-AppLifecycleMgr:applifecycle-compiler:1.0.5'
 
 }
